@@ -43,6 +43,13 @@ describe DockingStation do
       end
     end 
 
+    describe '#dock' do
+      it "raised an error when there are not spaces available" do
+        subject.dock(Bike.new)
+        expect { subject.dock(Bike.new) }.to raise_error "No space available"
+      end
+    end
+
 
   end
 end 
