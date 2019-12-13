@@ -14,4 +14,17 @@ class DockingStation
     fail "No space available" if @bikes.count >= 20
     @bikes << bike 
   end
+
+  def full?
+    false
+  end
+
 end 
+
+
+# single resposiblility principle 
+# predicat method .full?.
+# rewrite guard condition to include .full?
+# predicate method .empty?
+# rewite guard metods to include .empty?
+# private methods

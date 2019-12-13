@@ -46,5 +46,34 @@ describe DockingStation do
         expect { subject.dock(Bike.new) }.to raise_error "No space available"
       end
     end
+
+    describe "#full?" do
+      it "is dock true(full) or false (emplty)" do
+        expect(subject.full?).to eq(false)
+      end
+    end     
+
+
   end
 end 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
