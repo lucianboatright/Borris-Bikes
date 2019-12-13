@@ -27,25 +27,35 @@ describe DockingStation do
     expect(subject.dock(@bikes)).not_to be_empty
   end 
 
+  describe "Initializtion" do
+    it "has a variable capacity" do
+      bike = Bike.new
+      docking_station = DockingStation.new(50)
+      50.times {docking_station.dock(bike)}
+      expect {docking_station.dock(bike) }.to raise_error 'No space available'
+    end
+  end
+
   describe 'release_bike' do
     it 'release a bike' do
       bike = Bike.new
       subject.dock(bike)
       expect(subject.release_bike).to eq bike
     end
+  end
   
-    describe '#release_bike' do
-      it 'raised an error when there are no bikes available' do
-        expect{ subject.release_bike }.to raise_error "No bikes available"
-      end
-    end 
-
-    describe '#dock' do
-      it "raised an error when full" do
-        subject.capacity.times { subject.dock(Bike.new) }
-        expect { subject.dock(Bike.new) }.to raise_error "No space available"
-      end
+  describe '#release_bike' do
+    it 'raised an error when there are no bikes available' do
+      expect{ subject.release_bike }.to raise_error "No bikes available"
     end
+  end 
+
+  describe '#dock' do
+    it "raised an error when full" do
+      subject.capacity.times { subject.dock(Bike.new) }
+      expect { subject.dock(Bike.new) }.to raise_error "No space available"
+    end
+  end
 
 
 
@@ -64,7 +74,7 @@ describe DockingStation do
 
 
 
-  end
+
 end 
 
 
