@@ -52,6 +52,11 @@ describe DockingStation do
         expect(subject.full?).to eq(false)
       end
     end     
+    describe "#empty?" do
+      it "test is dock is empty?" do
+        expect(subject.empty?).to eq(true)
+      end
+    end
 
 
   end
