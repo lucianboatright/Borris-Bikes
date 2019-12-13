@@ -11,19 +11,20 @@ class DockingStation
   end
 
   def dock(bike)
-    fail "No space available" if @bikes.count >= 20
-    @bikes << bike 
+    fail "No space available" if full? 
+    @bikes << bike
   end
 
   def full?
-    false
+    @bikes.count >= 20 
   end
 
 end 
 
 
 # single resposiblility principle 
-# predicat method .full?.
+# predicat method .full?.////
+
 # rewrite guard condition to include .full?
 # predicate method .empty?
 # rewite guard metods to include .empty?
