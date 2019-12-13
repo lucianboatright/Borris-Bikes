@@ -42,10 +42,12 @@ describe DockingStation do
 
     describe '#dock' do
       it "raised an error when full" do
-        DockingStation::DEFAULT_CAPACITY.times { subject.dock(Bike.new) }
+        subject.capacity.times { subject.dock(Bike.new) }
         expect { subject.dock(Bike.new) }.to raise_error "No space available"
       end
     end
+
+
 
     # describe "#full?" do
     #   it "is dock true(full) or false (emplty)" do

@@ -3,7 +3,11 @@ require_relative 'bike'
 
 class DockingStation
   DEFAULT_CAPACITY = 20
-  def initialize
+  attr_reader :capacity
+
+
+  def initialize(capacity=DEFAULT_CAPACITY)
+    @capacity = capacity
     @bikes = []
   end
 
@@ -19,8 +23,10 @@ class DockingStation
 
   private
 
+  attr_reader :bikes
+
   def full?
-    @bikes.count >= DEFAULT_CAPACITY
+    @bikes.count >= @capacity
   end
 
   def empty?
@@ -29,9 +35,19 @@ class DockingStation
 
 end 
 
-# Create DEFAULT_CAPACITY store 20 bikes within DockingStation
-# Remove 20 from code and replace with DEFAIULT_CAPACITY
-# REFACTOR test code
 
+
+# set @capacity as instance variable on DockingStation.new
+# Create unit test for this
+# set default capacity to 20 
+# create unit test for default capacity 
+# use default argument value within the initialize 
+
+
+# create instance valriable @capacity 
+
+# check @capacity is default 20
+
+#
 
 
