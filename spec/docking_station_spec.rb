@@ -28,13 +28,25 @@ describe DockingStation do
   end 
 
   describe "Initializtion" do
-    it "has a variable capacity" do
-      bike = Bike.new
-      docking_station = DockingStation.new(50)
-      50.times {docking_station.dock(bike)}
-      expect {docking_station.dock(bike) }.to raise_error 'No space available'
+    subject {DockingStation.new}
+    let(:bike) {Bike.new}
+    it 'default capacity' do
+      DockingStation::DEFAULT_CAPACITY.times do
+          subject.dock(bike)
+        end
+        expect{subject.dock(bike)}.to raise_error "No space available"
+      end
     end
-  end
+
+
+
+  #   it "has a variable capacity" do
+  #     bike = Bike.new
+  #     docking_station = DockingStation.new(50)
+  #     50.times {docking_station.dock(bike)}
+  #     expect {docking_station.dock(bike) }.to raise_error 'No space available'
+  #   end
+  # end
 
   describe 'release_bike' do
     it 'release a bike' do
