@@ -1,6 +1,8 @@
 require_relative 'bike'
 
+
 class DockingStation
+  DEFAULT_CAPACITY = 20
   def initialize
     @bikes = []
   end
@@ -15,8 +17,10 @@ class DockingStation
     @bikes << bike
   end
 
+  private
+
   def full?
-    @bikes.count >= 20 
+    @bikes.count >= DEFAULT_CAPACITY
   end
 
   def empty?
@@ -25,11 +29,9 @@ class DockingStation
 
 end 
 
+# Create DEFAULT_CAPACITY store 20 bikes within DockingStation
+# Remove 20 from code and replace with DEFAIULT_CAPACITY
+# REFACTOR test code
 
-# single resposiblility principle 
-# predicat method .full?.////
-# rewrite guard condition to include .full?//
-# predicate method .empty?//
 
-# rewite guard metods to include .empty?
-# private methods
+
